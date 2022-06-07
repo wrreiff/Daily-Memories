@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server/server.js --open",
+    "build": "NODE_ENV=production webpack",
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open\" \"cross-env nodemon ./server/server.js\""
   },
   "repository": {
     "type": "git",
@@ -18,14 +20,34 @@
   },
   "homepage": "https://github.com/iamNurbek/reinforcement#readme",
   "dependencies": {
-    "bcrypt": "^5.0.1",
-    "cookies": "^0.8.0",
-    "express": "^4.18.1",
-    "jest": "^28.1.0",
-    "node": "^17.7.2",
-    "nodejs": "^0.0.0",
-    "nodemon": "^2.0.16",
+    "pg": "^8.7.3",
+    "postgres": "^3.2.4",
     "react": "^18.1.0",
-    "sql": "^0.78.0"
+    "react-dom": "^18.1.0",
+    "react-hot-loader": "^4.13.0",
+    "react-router": "^6.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@hot-loader/react-dom": "^17.0.2",
+    "autoprefixer": "^10.4.4",
+    "babel-loader": "^8.2.4",
+    "concurrently": "^7.2.1",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.13.0",
+    "eslint-plugin-react": "^7.29.4",
+    "html-webpack-plugin": "^5.5.0",
+    "node-sass": "^7.0.1",
+    "nodemon": "^2.0.16",
+    "postcss-loader": "^6.2.1",
+    "prettier": "^2.6.2",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
   }
 }
