@@ -8,6 +8,7 @@ import './styles.scss';
 
 function App() {
   const [isLoggedIn, setLoggedIn] = React.useState(false);
+  
   return (
     <div id='App'>
       <AppBar>
