@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
   entry: `./client/index.js`,
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
   mode: process.env.NODE_ENV,
@@ -37,8 +37,8 @@ module.exports = {
 
   devServer: {
     static: {
-      directory: path.join(__dirname, 'public'),
-      publicPath: '/build',
+      directory: path.join(__dirname, 'dist'),
+      publicPath: '/',
     },
     // compress: true,
     port: 8080,
