@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Joan&family=Open+Sans:wght@400;600;700&display=swap');
 $black: #1f2326;
 $crimson: #dc2800;
 $darkgold: #a46e01;
@@ -6,7 +7,110 @@ $steel: #b8c1d0;
 $white: white;
 
 body {
-  background: lightblue;
+  background-color: #74ebd5;
+  background-image: linear-gradient(123deg, #74ebd5 0%, #9face6 100%);
+  background-attachment: fixed;
+  font-family: 'Open Sans', 'Joan', 'Fredericka the Great', sans-serif;
+}
+
+input[type='text'],
+input[type='password'] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4b0082;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+}
+
+.sign {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #74ebd5;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+.modal-content {
+  background-color: #74ebd5;
+  margin: 5% auto 15% auto;
+  border: 1px solid #888;
+  border-radius: 10px;
+  padding: 2em;
+  width: 60%;
+}
+.close {
+  position: relative;
+  background-color: #74ebd5;
+  left: 35em;
+  width: 10%;
+  bottom: 2em;
+  color: #000;
+  font-size: px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  font-family: 'Joan', sans-serif;
+  margin-top: 7em;
+}
+
+.landingElements {
+  display: flex;
+  justify-content: center;
+  // margin: 1em;
+}
+
+.signBtn {
+  margin: 1em;
+}
+
+.quoteContainer {
+  display: flex;
+  justify-content: space-around;
+  margin: 10em 20em auto;
+  background-color: rgba(220, 220, 220, 0.3);
+  padding: 3em;
+  border-radius: 20px;
+}
+
+.quote {
+  font-family: 'Fredericka the Great';
+  font-size: 44px;
+  color: #4b0082;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  font-size: 24px;
+  font-family: 'Joan', sans-serif;
+  // background-color: rgba(220, 220, 220, 1);
+  // padding-bottom: 1em;
+}
+
+.bodyTop {
+  margin-top: 50px;
 }
 
 .DiaryPage {
