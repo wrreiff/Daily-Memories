@@ -7,6 +7,17 @@ const app = express();
 // parse request body using express
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.resolve(__dirname, '../dist')));
+
+app.get('/currentEntries', (req, res) => {
+  return res.status(200).send([{id:1, text:"Diary Entry 1", dateId:"19861201"}, {id:2, text:"Diary Entry 2", dateId:"19861201"}]);
+});
+
+app.delete('/deleteEntry', (req, res) => {
+  console.log('in delete entry')
+  return res.status(200).send("deleted");
+});
+
 
 // catch-all router handler for any request to an unknown route
 app.use('*', (req, res) => {
