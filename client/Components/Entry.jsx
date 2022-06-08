@@ -4,11 +4,12 @@ export default function Entry(props) {
   const postDiary = (event) => {
     console.log(event)
     console.log(event.target[0].value)
-    fetch("/postEntry", {
+    fetch("/diary", {
       method: "POST",
       headers: {'Content-Type': 'application/json'}, 
-      body: JSON.stringify(data)
+      body: JSON.stringify({diary: event.target[0].value})
     }).then(res => {
+      props.syncEntries();
       console.log("Request complete! response:", res);
     });
     event.preventDefault()

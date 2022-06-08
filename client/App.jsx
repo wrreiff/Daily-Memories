@@ -7,7 +7,7 @@ import DiaryPage from './Components/DiaryPage.jsx';
 import './styles.scss';
 
 function App() {
-  const [isLoggedIn, setLoggedIn] = React.useState(false);
+  const [isLoggedIn, setLoggedIn] = React.useState(true);
   
   return (
     <div id='App'>
@@ -17,7 +17,7 @@ function App() {
         </Toolbar>
       </AppBar>
       <div className='bodyTop'>
-        {isLoggedIn ? <diaryPage/> : <Splash />}
+        {isLoggedIn ? <DiaryPage/> : <Splash />}
       </div>
     </div>
   );

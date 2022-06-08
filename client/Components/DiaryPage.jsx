@@ -7,24 +7,30 @@ import SavedEntry from './SavedEntry.jsx'
 function DiaryPage() {
   const [dateValue, setDateValue] = React.useState(new Date());
   const [entries, setEntries] = React.useState([])
-  React.useEffect(() => {fetch('/currentEntries')
+  React.useEffect(() => {fetch('/diary/get')
     .then((response) => response.json())
-    .then((data) => setEntries(data))
+    .then((data) => {
+      console.log(data)
+      setEntries(data)
+    })
   }, [])
 
   const syncEntries = () => {
-    fetch('/currentEntries')
+    fetch('/diary/get')
     .then((response) => response.json())
-    .then((data) => setEntries(data))
+    .then((data) => {
+      setEntries(data)
+    })
   }
   
   let entriesToRender = [];
   entries.forEach((entry, index) => {
     entriesToRender.push(<SavedEntry 
-    id={entry.id} 
-    dateId={entry.dateId}
-    key={entry.id}
-    text={entry.text}
+    id={index + 1} 
+    time={entry.time}
+    _id={entry._id}
+    key={entry._id}
+    diary={entry.diary}
     setEntries={setEntries}
     entries={entries}
     syncEntries={syncEntries}
@@ -34,6 +40,8 @@ function DiaryPage() {
     entriesToRender.push(<Entry id={i} 
       key={String(dateValue.getFullYear()) + String(dateValue.getMonth()) + String(dateValue.getDate()) + String(i)}
       date={String(dateValue.getFullYear()) + String(dateValue.getMonth()) + String(dateValue.getDate())}
+      entries={entries}
+      syncEntries={syncEntries}
     />)
   }
   return (
