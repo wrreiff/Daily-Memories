@@ -1,11 +1,11 @@
 const db = require('..models/models.js');
 const customerController = {};
 
-customerController.createCustomer = (req, res, next) => {
-  const { user, password } = req.body;
+customerController.createUser = (req, res, next) => {
+  const { username, password } = req.body;
 
-  db.query('INSERT INTO customer VALUES (DEFAULT, $1, $2) RETURNING *', [
-    user,
+  db.query('INSERT INTO users VALUES (DEFAULT, $1, $2) RETURNING *', [
+    username,
     password,
   ])
     .then((data) => {

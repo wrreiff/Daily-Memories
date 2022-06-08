@@ -1,6 +1,7 @@
 const PORT = 3000;
 const path = require('path');
 const express = require('express');
+const diaryRouter = require('./routes/diaryRoute');
 
 const app = express();
 
@@ -8,26 +9,21 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, '../dist')));
+app.use('/diary', diaryRouter);
 
-// catch-all router handler for any request to an unknown route
-app.use('*', (req, res) => {
-  return res.status(404).send('ERROR, ROUTE NOT FOUND');
-});
+// Unknown route handler
+app.use((req, res) => res.sendStatus(404));
 
-// global error handling
+// Global error handler
 app.use((err, req, res, next) => {
-  const globalErr = {
-    log: 'UNKNOWN MIDDLEWARE ERROR',
-    status: 500,
-    message: { err: 'ERROR' },
+  const defaultErr = {
+    log: 'Express error handler caught unknown middleware error',
+    status: 400,
+    message: { err: 'An error occurred' },
   };
-  const errorObj = Object.assign({}, globalErr, err);
+  const errorObj = Object.assign({}, defaultErr, err);
   console.log(errorObj.log);
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-app.listen(PORT, () => {
-  console.log(`Server listening on port: ${PORT}`);
-});
-
-module.exports = app;
+app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
